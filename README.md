@@ -37,13 +37,9 @@ Content lives in `src/content/` and is edited at `/keystatic`. The storage mode 
 ### One-time Keystatic Cloud setup
 
 1. Sign in at [keystatic.cloud](https://keystatic.cloud), create a team and a project, and connect it to this GitHub repo.
-2. Copy the project slug (`team/project`).
-3. Set `PUBLIC_KEYSTATIC_CLOUD_PROJECT` to that slug as a **build** variable in Cloudflare (Workers & Pages → your project → Settings → Build → Variables), and in a local `.env` if you want to build with cloud mode locally.
-4. Connect the repo to Cloudflare Workers Builds so each Keystatic commit triggers a deploy.
-5. In Keystatic Cloud, add the site's URL (e.g. `https://your-site.workers.dev`) to the project's allowed origins, then invite editors.
-
-Until `PUBLIC_KEYSTATIC_CLOUD_PROJECT` is set, production builds fall back to `local` (the deployed admin is read-only). To try cloud mode during development, set `PUBLIC_KEYSTATIC_STORAGE=cloud` in `.env`.
-
+2. Put the project slug (`team/project`) in `KEYSTATIC_CLOUD_PROJECT` in `keystatic.config.ts` (already set to `desn/astrokeystaticmstart` for this repo).
+3. Connect the repo to Cloudflare Workers Builds so each Keystatic commit triggers a deploy.
+4. In Keystatic Cloud, add the site's URL (e.g. `https://your-site.workers.dev`) to the project's allowed origins, then invite editors.
 ## 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:
