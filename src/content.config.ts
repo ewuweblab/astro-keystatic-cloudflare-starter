@@ -12,4 +12,13 @@ const pages = defineCollection({
   }),
 });
 
-export const collections = { pages };
+// Keystatic "Posts" collection, stored as src/content/posts/<slug>.mdoc.
+// The entry id is the slug Keystatic generates from the title.
+const posts = defineCollection({
+  loader: glob({ pattern: '*.mdoc', base: './src/content/posts' }),
+  schema: z.object({
+    title: z.string(),
+  }),
+});
+
+export const collections = { pages, posts };
